@@ -12,12 +12,12 @@ bool xorit(string i,string j)
         if(i[a]==j[a])getit[a]=0;
         else getit[a]=1;
     }
-    for(int c=0;c<m;c++)
+/*    for(int c=0;c<m;c++)
 	{
 		printf("%d",getit[c]);
-	} 
+	}
 	printf("**");
-	cout<<i<<'*'<<j<<endl;
+	cout<<i<<'*'<<j<<endl;*/
     for(int a=0;a<i.length();a++)
     {
         if(i[a]=='1'&&getit[a]==0)return true;
@@ -46,4 +46,3 @@ int main()
     }
     return 0;
 }
-
