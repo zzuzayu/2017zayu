@@ -1,40 +1,43 @@
 #include<bits/stdc++.h>
+
 using namespace std;
-set<int> sum3;
-set<int> sum2;
-set<int> sum1;
-set<int> good;
-void build(int x)
-{
-	if(sum3.find(x)!=sum3.end())good.insert(x);
-	for(set<int>::iterator itit=sum2.begin();itit!=sum2.end();itit++)
-	{
-		sum3.insert(*itit+x);
-	}
-	for(set<int>::iterator itit=sum1.begin();itit!=sum1.end();itit++)
-	{
-		sum2.insert(*itit+x);
-	}
-}
+const int maxn =1e6+7;
+long long qianzuihe[maxn];
+
 int main()
+
 {
+
 	int t;
-	cin>>t;
+
+	scanf("%d",&t);
+
 	while(t--)
+
 	{
+
 		int shu;
+
 		int read;
-		cin>>shu;
-		good.clear();
-		sum3.clear();
-		sum2.clear();
-		sum1.clear();
+		scanf("%d",&shu);
+		memset(qianzuihe,0,sizeof(qianzuihe));
+		long long temp=0;
+		int res=0;
 		for(int i=0;i<shu;i++)
+
 		{
-			scanf("%d",&read);
-			build(read);
-			sum1.insert(read);		
+			long long read;
+			scanf("%lld",&read);
+			temp+=read;		
+			qianzuihe[i]=temp;
+			if(i>2)
+			{
+			if(qianzuihe[i]==qianzuihe[i-1]+qianzuihe[i-2]+qianzuihe[i-3])res++;
+			}
 		}
-		cout<<good.size()<<endl;
+
+		cout<<res<<endl;
+
 	}
-} 
+
+}
